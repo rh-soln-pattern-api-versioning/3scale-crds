@@ -20,6 +20,9 @@ dependencies:
   - name: globex-backend
     version: 0.1.0
     repository: file://globex-backend
+  - name: globex-backend-1-1-0
+    version: 0.1.0
+    repository: file://globex-backend-1-1-0
   - name: globex-product
     version: 0.1.0
     repository: file://globex-product
