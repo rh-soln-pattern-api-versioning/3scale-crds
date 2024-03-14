@@ -1,7 +1,0 @@
-nameOverride: apicurio-designer
-
-replicaCount: 1
-
-apicurito:
-  generatorHost: ""
-  uiHost: ""
