@@ -3,6 +3,6 @@ argocd:
   syncwave: "1"
 
 backend:
-  name: "Globex Order Placement Backend"
+  name: "Globex Order Placement Backend 1.1.0"
   systemName: "globex-order-placement-backend-1-1-0"
-  privateBaseURL: "http://order-placement.globex-user1.svc.cluster.local:8080"
+  privateBaseURL: "http://order-placement-v1-1-0.globex-user1.svc.cluster.local:8080"
