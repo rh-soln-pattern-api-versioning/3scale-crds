@@ -1,0 +1,14 @@
+apiVersion: capabilities.3scale.net/v1beta1
+kind: Application
+metadata:
+  name: {{ include "globex-account-application.name" . }}
+  annotations:
+    {{- include "globex-account-application.argocd-syncwave" . | nindent 4 }}
+spec:
+  accountCR:
+    name: globex-developeraccount
+  applicationPlanName: basic
+  description: Basic Plan
+  name: basic
+  productCR:
+    name: globex-order-placement-product

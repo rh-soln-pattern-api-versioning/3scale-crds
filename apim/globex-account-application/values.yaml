@@ -1,0 +1,6 @@
+nameOverride: "basic"
+
+
+argocd:
+  enabled: true
+  syncwave: "3"

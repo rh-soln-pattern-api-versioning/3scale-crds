@@ -1,0 +1,44 @@
+apiVersion: capabilities.3scale.net/v1beta1
+kind: Product
+metadata:
+  name: {{ include "globex-product.name" . }}
+  annotations:
+    {{- include "globex-product.argocd-syncwave" . | nindent 4 }}
+spec:
+  name: {{ .Values.product.name }}
+  systemName: {{ .Values.product.systemName }}
+  providerAccountRef:
+    name: 3scale-tenant-secret
+  metrics:
+    hits:
+      description: Number of API hits
+      friendlyName: Hits
+      unit: "hit"
+  methods:
+    v1_0_0:
+      friendlyName: Method  version 1.0.0
+    v2_0_0:
+      friendlyName: Method  version 2.0.0
+    order_placement:
+      friendlyName: Order Placement API
+  mappingRules:
+    - httpMethod: POST
+      pattern: "/v1"
+      increment: 1
+      metricMethodRef: v1_0_0
+    - httpMethod: POST
+      pattern: "/{version}"
+      increment: 1
+      metricMethodRef: Order Placement API    
+  applicationPlans:
+    basic:
+      name: "Basic Plan"
+      setupFee: "0"
+      published: true
+    premium:
+      name: "Premium Plan"
+      setupFee: "100"
+      published: true
+  backendUsages:
+    globex-order-placement-backend:
+      path: /v1

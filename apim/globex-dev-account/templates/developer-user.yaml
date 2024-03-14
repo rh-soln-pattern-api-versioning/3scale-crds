@@ -1,0 +1,35 @@
+---
+apiVersion: capabilities.3scale.net/v1beta1
+kind: DeveloperUser
+metadata:
+  name: admin.globex
+  annotations:
+    {{- include "globex-dev-account.developeruser.argocd-syncwave" . | nindent 4 }}
+spec:
+  username: admin.globex
+  email: admin@globex.com
+  passwordCredentialsRef:
+    name: globexuser.secret
+  role: admin
+  developerAccountRef:
+    name: globex-developeraccount
+  providerAccountRef:
+    name: 3scale-tenant-secret
+
+---
+apiVersion: capabilities.3scale.net/v1beta1
+kind: DeveloperUser
+metadata:
+  name: dev.globex
+  annotations:
+    {{- include "globex-dev-account.developeruser.argocd-syncwave" . | nindent 4 }}
+spec:
+  username: dev.globex
+  email: dev@globex.com
+  passwordCredentialsRef:
+    name: globexuser.secret
+  role: member
+  developerAccountRef:
+    name: globex-developeraccount
+  providerAccountRef:
+    name: 3scale-tenant-secret

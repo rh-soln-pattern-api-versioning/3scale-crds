@@ -1,0 +1,8 @@
+argocd:
+  enabled: true
+  syncwave: "2"
+
+product:
+  name: "Globex Order Placement Product"
+  systemName: globex-order-placement-product
+  issuerEndpoint: ""
