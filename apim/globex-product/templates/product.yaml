@@ -17,8 +17,6 @@ spec:
   methods:
     v1_0_0:
       friendlyName: Method  version 1.0.0
-    v2_0_0:
-      friendlyName: Method  version 2.0.0
     order_placement:
       friendlyName: Order Placement API
   mappingRules:
